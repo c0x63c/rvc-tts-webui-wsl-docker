@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  script:
+    build:
+      context: .
+      dockerfile: ./service/Dockerfile
+    container_name: RVCTTS01
+    tty: true
+    ports:
+      - '7860:7860/tcp'
+    network_mode: 'host'
+    shm_size: '8gb'
+    environment:
+      gpus: 'all'
+    volumes:
+      - ./volumes/weights:/rvc-tts-webui/weights
+    logging:
+      options:
+        max-size: '200k'
+        max-file: '10'
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
