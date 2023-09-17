@@ -21,6 +21,12 @@ http://localhost:7860
 ```
 
 * In order to start it, you need to put the pth file and index file together with the directory name under the weights folder.
+```
+volumes/weights
+        └── model1
+            ├── model1.pth
+            └── model1.index #(index file starting with add)
+```
 
 ## Version
 
